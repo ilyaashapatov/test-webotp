@@ -1,0 +1,94 @@
+:root {
+    --input-otp-value-color: #000;
+    --input-otp-value-color-disabled: rgb(0 0 0 / 55%);
+    --input-otp-value-nova-color-invalid: #f00;
+    --input-otp-nova-color-background-empty: rgb(255 255 255 / 74%);
+    --input-otp-nova-color-background-hover: rgb(255 255 255 / 40%);
+    --input-otp-nova-color-background-disabled: rgb(255 255 255 / 74%);
+    --input-otp-nova-color-background-focus: rgb(255 255 255 / 74%);
+    --input-otp-nova-color-background-active: rgb(255 255 255 / 55%);
+    --input-otp-nova-color-outline: #fff;
+}
+
+@keyframes shake {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(4px, 0); }
+    50% { transform: translate(0, 0); }
+    75% { transform: translate(-4px, 0); }
+    100% { transform: translate(0, 0); }
+}
+
+.wrapper {
+    display: flex;
+    justify-content: start;
+}
+
+.input {
+    align-items: center;
+    border: none !important;
+    border-radius: 2px;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 600;
+    height: 38px;
+    justify-content: center;
+    letter-spacing: -0.3px;
+    line-height: 20px;
+    margin: 0 1px;
+    outline: 2.5px solid transparent;
+    text-align: center;
+    transition: .2s;
+    width: 36px;
+
+    @media (min-width: 577px) {
+        height: 44px;
+        width: 40px;
+    }
+
+    &:first-child {
+        border-radius: 12px 2px 2px 12px;
+        margin-left: 0;
+    }
+
+    &:last-child {
+        border-radius: 2px 12px 12px 2px;
+        margin-right: 0;
+    }
+
+    &::-webkit-caps-lock-indicator {
+        content: none;
+        visibility: hidden;
+    }
+
+    &:focus {
+        appearance: none;
+    }
+
+    background-color: var(--input-otp-nova-color-background-empty);
+    color: var(--input-otp-value-color);
+
+    &:focus:not(:disabled, :read-only) {
+        background-color: var(--input-otp-nova-color-background-focus);
+    }
+
+    &:hover:not(:disabled, :read-only) {
+        background-color: var(--input-otp-nova-color-background-hover);
+    }
+
+    &:active:not(:disabled, :read-only) {
+        background-color: var(--input-otp-nova-color-background-active);
+    }
+
+    &:focus-visible:not(:disabled, :read-only) {
+        outline-color: var(--input-otp-nova-color-outline);
+    }
+
+    &.invalid {
+        color: var(--input-otp-value-nova-color-invalid);
+    }
+
+    &:disabled, &:read-only {
+        background-color: var(--input-otp-nova-color-background-disabled);
+        color: var(--input-otp-value-color-disabled);
+    }
+}

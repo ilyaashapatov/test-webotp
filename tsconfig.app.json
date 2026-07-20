@@ -19,8 +19,14 @@
     /* Linting */
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true
+    "erasableSyntaxOnly": false,
+    "noFallthroughCasesInSwitch": true,
+    "typeRoots": [
+      "types"
+    ]
   },
-  "include": ["src"]
+  "include": [
+    "src",
+    "types/window.d.ts"
+  ]
 }
